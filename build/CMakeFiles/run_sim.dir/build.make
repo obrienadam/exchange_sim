@@ -76,28 +76,29 @@ include CMakeFiles/run_sim.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/run_sim.dir/flags.make
 
-CMakeFiles/run_sim.dir/main.cc.o: CMakeFiles/run_sim.dir/flags.make
-CMakeFiles/run_sim.dir/main.cc.o: ../main.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aobrien/dev/cpp/market_maker_sim/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/run_sim.dir/main.cc.o"
-	/usr/bin/clang++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/run_sim.dir/main.cc.o -c /home/aobrien/dev/cpp/market_maker_sim/main.cc
+CMakeFiles/run_sim.dir/main.o: CMakeFiles/run_sim.dir/flags.make
+CMakeFiles/run_sim.dir/main.o: ../main.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aobrien/dev/cpp/market_maker_sim/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/run_sim.dir/main.o"
+	/usr/bin/clang++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/run_sim.dir/main.o -c /home/aobrien/dev/cpp/market_maker_sim/main.cc
 
-CMakeFiles/run_sim.dir/main.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/run_sim.dir/main.cc.i"
-	/usr/bin/clang++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aobrien/dev/cpp/market_maker_sim/main.cc > CMakeFiles/run_sim.dir/main.cc.i
+CMakeFiles/run_sim.dir/main.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/run_sim.dir/main.i"
+	/usr/bin/clang++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aobrien/dev/cpp/market_maker_sim/main.cc > CMakeFiles/run_sim.dir/main.i
 
-CMakeFiles/run_sim.dir/main.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/run_sim.dir/main.cc.s"
-	/usr/bin/clang++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aobrien/dev/cpp/market_maker_sim/main.cc -o CMakeFiles/run_sim.dir/main.cc.s
+CMakeFiles/run_sim.dir/main.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/run_sim.dir/main.s"
+	/usr/bin/clang++-13 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aobrien/dev/cpp/market_maker_sim/main.cc -o CMakeFiles/run_sim.dir/main.s
 
 # Object files for target run_sim
 run_sim_OBJECTS = \
-"CMakeFiles/run_sim.dir/main.cc.o"
+"CMakeFiles/run_sim.dir/main.o"
 
 # External object files for target run_sim
 run_sim_EXTERNAL_OBJECTS =
 
-run_sim: CMakeFiles/run_sim.dir/main.cc.o
+run_sim: CMakeFiles/run_sim.dir/main.o
 run_sim: CMakeFiles/run_sim.dir/build.make
+run_sim: libmm_sim.a
 run_sim: CMakeFiles/run_sim.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/aobrien/dev/cpp/market_maker_sim/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable run_sim"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/run_sim.dir/link.txt --verbose=$(VERBOSE)

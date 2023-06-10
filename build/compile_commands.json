@@ -1,7 +1,22 @@
 [
 {
   "directory": "/home/aobrien/dev/cpp/market_maker_sim/build",
-  "command": "/usr/bin/clang++-13   -g -std=gnu++17 -o CMakeFiles/run_sim.dir/main.cc.o -c /home/aobrien/dev/cpp/market_maker_sim/main.cc",
+  "command": "/usr/bin/clang++-13   -g -std=gnu++17 -o CMakeFiles/run_sim.dir/main.o -c /home/aobrien/dev/cpp/market_maker_sim/main.cc",
   "file": "/home/aobrien/dev/cpp/market_maker_sim/main.cc"
+},
+{
+  "directory": "/home/aobrien/dev/cpp/market_maker_sim/build",
+  "command": "/usr/bin/clang++-13   -g -std=gnu++17 -o CMakeFiles/mm_sim.dir/exchange.o -c /home/aobrien/dev/cpp/market_maker_sim/exchange.cc",
+  "file": "/home/aobrien/dev/cpp/market_maker_sim/exchange.cc"
+},
+{
+  "directory": "/home/aobrien/dev/cpp/market_maker_sim/build",
+  "command": "/usr/bin/clang++-13   -g -std=gnu++17 -o CMakeFiles/mm_sim.dir/main.o -c /home/aobrien/dev/cpp/market_maker_sim/main.cc",
+  "file": "/home/aobrien/dev/cpp/market_maker_sim/main.cc"
+},
+{
+  "directory": "/home/aobrien/dev/cpp/market_maker_sim/build",
+  "command": "/usr/bin/clang++-13   -g -std=gnu++17 -o CMakeFiles/mm_sim.dir/order_queue.o -c /home/aobrien/dev/cpp/market_maker_sim/order_queue.cc",
+  "file": "/home/aobrien/dev/cpp/market_maker_sim/order_queue.cc"
 }
 ]

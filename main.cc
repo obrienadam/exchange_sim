@@ -1,73 +1,50 @@
 #include <iostream>
-#include <queue>
-#include <string>
-#include <optional>
-#include <algorithm>
+#include <random>
 
-struct Order{
-    enum Type {
-        MARKET = 0,
-        LIMIT = 1
-    };
-
-    enum Action {
-        BUY = 0, SELL = 1
-    };
-
-    int agent_id{0};
-    std::string symbol;
-    int num_shares{0};
-    Action action{BUY};
-    Type type{MARKET};
-
-    std::optional<double> limit_price{std::nullopt};
-};
-
-class OrderQueue{
-    public:
- 
-    protected:
-
-    void add_buy_order(const Order& order) {
-        constexpr auto cmp = [](const Order& lhs, const Order& rhs)->bool {
-            if(lhs.type != rhs.type) {
-                return lhs.type > rhs.type;
-            }
-
-            if(lhs.type == Order::MARKET) {
-                return lhs.num_shares < rhs.num_shares;
-            }
-
-            return lhs.limit_price.value() < rhs.limit_price.value();
-        };
-
-        std::push_heap(buy_orders_.begin(), buy_orders_.end(), cmp);
-    }
-
-    void add_sell_order(const Order& order) {
-                constexpr auto cmp = [](const Order& lhs, const Order& rhs)->bool {
-            if(lhs.type != rhs.type) {
-                return lhs.type > rhs.type;
-            }
-
-            if(lhs.type == Order::MARKET) {
-                return lhs.num_shares < rhs.num_shares;
-            }
-
-            return lhs.limit_price.value() > rhs.limit_price.value();
-        };
-
-        std::push_heap(sell_orders_.begin(), sell_orders_.end(), cmp);
-    }
-
-    std::vector<Order> buy_orders_;
-    std::vector<Order> sell_orders_;
-};
+#include "order_queue.h"
 
 int main(int argc, const char **argv) {
-    using namespace std;
+  using namespace std;
+  std::mt19937_64 gen;
 
+  std::uniform_int_distribution<int> agent_dist(0, 20);
+  std::uniform_int_distribution<size_t> random_int;
+  std::normal_distribution<double> price_distribution(40., 3.);
+  std::uniform_int_distribution<int> share_dist(30, 100);
 
+  OrderQueue orders;
 
-    return 0;
+  Order::Action actions[] = {Order::BUY, Order::SELL};
+  Order::Type types[] = {Order::LIMIT, Order::MARKET};
+
+  for (int i = 0; i < 150; ++i) {
+    Order order{
+        .agent_id = agent_dist(gen),
+        .num_shares = share_dist(gen),
+        .action = actions[random_int(gen) % 2],
+        .type = Order::LIMIT,
+    };
+
+    if (order.type == Order::LIMIT) {
+      order.limit_price = price_distribution(gen);
+    }
+
+    orders.place_order(order, [order](const OrderFulfilled &order_fulfilled) {
+      double limit_price = order.limit_price.value();
+
+      std::cout << order_fulfilled << '\n';
+
+      switch (order.action) {
+      case Order::BUY:
+        std::cout << "Price improvement (BUY): "
+                  << limit_price - order_fulfilled.filled_price << '\n';
+        break;
+      case Order::SELL:
+        std::cout << "Price improvement (SELL): "
+                  << order_fulfilled.filled_price - limit_price << '\n';
+      }
+    });
+  }
+
+  return 0;
 }

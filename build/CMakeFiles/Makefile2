@@ -73,6 +73,7 @@ CMAKE_BINARY_DIR = /home/aobrien/dev/cpp/market_maker_sim/build
 
 # The main recursive "all" target.
 all: CMakeFiles/run_sim.dir/all
+all: CMakeFiles/mm_sim.dir/all
 
 .PHONY : all
 
@@ -83,6 +84,7 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/run_sim.dir/clean
+clean: CMakeFiles/mm_sim.dir/clean
 
 .PHONY : clean
 
@@ -90,15 +92,15 @@ clean: CMakeFiles/run_sim.dir/clean
 # Target rules for target CMakeFiles/run_sim.dir
 
 # All Build rule for target.
-CMakeFiles/run_sim.dir/all:
+CMakeFiles/run_sim.dir/all: CMakeFiles/mm_sim.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_sim.dir/build.make CMakeFiles/run_sim.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_sim.dir/build.make CMakeFiles/run_sim.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/aobrien/dev/cpp/market_maker_sim/build/CMakeFiles --progress-num=1,2 "Built target run_sim"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/aobrien/dev/cpp/market_maker_sim/build/CMakeFiles --progress-num=5,6 "Built target run_sim"
 .PHONY : CMakeFiles/run_sim.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/run_sim.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aobrien/dev/cpp/market_maker_sim/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aobrien/dev/cpp/market_maker_sim/build/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/run_sim.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/aobrien/dev/cpp/market_maker_sim/build/CMakeFiles 0
 .PHONY : CMakeFiles/run_sim.dir/rule
@@ -112,6 +114,33 @@ run_sim: CMakeFiles/run_sim.dir/rule
 CMakeFiles/run_sim.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_sim.dir/build.make CMakeFiles/run_sim.dir/clean
 .PHONY : CMakeFiles/run_sim.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/mm_sim.dir
+
+# All Build rule for target.
+CMakeFiles/mm_sim.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mm_sim.dir/build.make CMakeFiles/mm_sim.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mm_sim.dir/build.make CMakeFiles/mm_sim.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/aobrien/dev/cpp/market_maker_sim/build/CMakeFiles --progress-num=1,2,3,4 "Built target mm_sim"
+.PHONY : CMakeFiles/mm_sim.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/mm_sim.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aobrien/dev/cpp/market_maker_sim/build/CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/mm_sim.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aobrien/dev/cpp/market_maker_sim/build/CMakeFiles 0
+.PHONY : CMakeFiles/mm_sim.dir/rule
+
+# Convenience name for target.
+mm_sim: CMakeFiles/mm_sim.dir/rule
+
+.PHONY : mm_sim
+
+# clean rule for target.
+CMakeFiles/mm_sim.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mm_sim.dir/build.make CMakeFiles/mm_sim.dir/clean
+.PHONY : CMakeFiles/mm_sim.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

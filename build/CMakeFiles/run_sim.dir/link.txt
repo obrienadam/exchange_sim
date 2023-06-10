@@ -1,1 +1,1 @@
-/usr/bin/clang++-13 -g -rdynamic CMakeFiles/run_sim.dir/main.cc.o -o run_sim 
+/usr/bin/clang++-13 -g -rdynamic CMakeFiles/run_sim.dir/main.o -o run_sim  libmm_sim.a 

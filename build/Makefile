@@ -75,17 +75,6 @@ CMAKE_BINARY_DIR = /home/aobrien/dev/cpp/market_maker_sim/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -96,6 +85,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -142,32 +142,66 @@ run_sim/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_sim.dir/build.make CMakeFiles/run_sim.dir/build
 .PHONY : run_sim/fast
 
-main.o: main.cc.o
+#=============================================================================
+# Target rules for targets named mm_sim
 
-.PHONY : main.o
+# Build rule for target.
+mm_sim: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 mm_sim
+.PHONY : mm_sim
+
+# fast build rule for target.
+mm_sim/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mm_sim.dir/build.make CMakeFiles/mm_sim.dir/build
+.PHONY : mm_sim/fast
 
 # target to build an object file
-main.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_sim.dir/build.make CMakeFiles/run_sim.dir/main.cc.o
-.PHONY : main.cc.o
-
-main.i: main.cc.i
-
-.PHONY : main.i
+exchange.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mm_sim.dir/build.make CMakeFiles/mm_sim.dir/exchange.o
+.PHONY : exchange.o
 
 # target to preprocess a source file
-main.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_sim.dir/build.make CMakeFiles/run_sim.dir/main.cc.i
-.PHONY : main.cc.i
-
-main.s: main.cc.s
-
-.PHONY : main.s
+exchange.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mm_sim.dir/build.make CMakeFiles/mm_sim.dir/exchange.i
+.PHONY : exchange.i
 
 # target to generate assembly for a file
-main.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_sim.dir/build.make CMakeFiles/run_sim.dir/main.cc.s
-.PHONY : main.cc.s
+exchange.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mm_sim.dir/build.make CMakeFiles/mm_sim.dir/exchange.s
+.PHONY : exchange.s
+
+# target to build an object file
+main.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_sim.dir/build.make CMakeFiles/run_sim.dir/main.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mm_sim.dir/build.make CMakeFiles/mm_sim.dir/main.o
+.PHONY : main.o
+
+# target to preprocess a source file
+main.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_sim.dir/build.make CMakeFiles/run_sim.dir/main.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mm_sim.dir/build.make CMakeFiles/mm_sim.dir/main.i
+.PHONY : main.i
+
+# target to generate assembly for a file
+main.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_sim.dir/build.make CMakeFiles/run_sim.dir/main.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mm_sim.dir/build.make CMakeFiles/mm_sim.dir/main.s
+.PHONY : main.s
+
+# target to build an object file
+order_queue.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mm_sim.dir/build.make CMakeFiles/mm_sim.dir/order_queue.o
+.PHONY : order_queue.o
+
+# target to preprocess a source file
+order_queue.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mm_sim.dir/build.make CMakeFiles/mm_sim.dir/order_queue.i
+.PHONY : order_queue.i
+
+# target to generate assembly for a file
+order_queue.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mm_sim.dir/build.make CMakeFiles/mm_sim.dir/order_queue.s
+.PHONY : order_queue.s
 
 # Help Target
 help:
@@ -177,10 +211,17 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... mm_sim"
 	@echo "... run_sim"
+	@echo "... exchange.o"
+	@echo "... exchange.i"
+	@echo "... exchange.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... order_queue.o"
+	@echo "... order_queue.i"
+	@echo "... order_queue.s"
 .PHONY : help
 
 
