@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/aobrien/dev/cpp/market_maker_sim/build",
+  "command": "/usr/bin/clang++-13   -g -std=gnu++17 -o CMakeFiles/run_sim.dir/main.cc.o -c /home/aobrien/dev/cpp/market_maker_sim/main.cc",
+  "file": "/home/aobrien/dev/cpp/market_maker_sim/main.cc"
+}
+]

@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/aobrien/dev/cpp/market_maker_sim/main.cc
+iostream
+-
+queue
+-
+string
+-
+optional
+-
+algorithm
+-
+
